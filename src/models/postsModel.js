@@ -1,3 +1,6 @@
+import "dotenv/config";
+
+import { ObjectId } from "mongodb";
 import dbConnection from "../config/dbConfig.js";
 
 // **Connect to the MongoDB Database Cluster**
@@ -26,3 +29,17 @@ export async function createPost(newPost){
    // **Insert the new post into the 'posts' collection**
     return collection.insertOne(newPost);
 };
+
+export async function updatePost(id, updPost){
+    const objID = ObjectId.createFromHexString(id);
+
+    // **Select the 'imersao-instabytes' database**
+    const db = connection.db("imersao-instabytes");
+
+    // **Select the 'posts' collection within the database**
+    const collection = db.collection("posts");
+
+    // **Update the post with the specified id in the 'posts' collection**
+    return collection.updateOne({_id: new ObjectId(objID)}, {$set: updPost});
+}
+

@@ -1,5 +1,7 @@
-import { createPost, getAllPosts } from "../models/postsModel.js";
 import fs from "fs";
+import generateDescriptionWithGemini from "../services/geminiService.js";
+import { createPost, getAllPosts, updatePost } from "../models/postsModel.js";
+
 
 // Function to list all existing posts
 export async function listPosts(req, res) {
@@ -57,5 +59,35 @@ export async function uploadImage(req, res) {
 
     // Send an error response with a 500 status code
     res.status(500).json({ message: "Error uploading image" });
+  }
+}
+
+// Function to update an image
+export async function updateNewPost(req, res) {
+  const id = req.params.id;
+  const urlImg = `http://localhost:3000/${id}.png`;
+  
+  
+  try {
+    const imgBuffer = fs.readFileSync(`uploads/${id}.png`);
+    const description = await generateDescriptionWithGemini(imgBuffer);
+    
+    const post = {
+      imgUrl: urlImg,
+      descricao: description,
+      alt: req.body.alt
+    }
+
+    // Create a new post in the database
+    const updPost = await updatePost(id, post);
+
+    // Send the newly created post as a JSON response
+    res.status(200).json(updPost);
+  } catch (err) {
+    // Log the error to the console for debugging
+    console.error(err.message);
+
+    // Send an error response with a 500 status code
+    res.status(500).json({ message: "Error creating post" });
   }
 }
