@@ -1,11 +1,10 @@
-Aqui está uma atualização do README, incluindo elementos para facilitar a compreensão de crianças, emojis, e adaptação ao idioma português:
 
 ---
 
 # 🖼️ **Instabytes Backend**
 
 
-Bem-vindo ao repositório do **Instabytes Backend**! 🚀 Aqui é onde acontece toda a mágica do nosso projeto. Esse componente é responsável por gerenciar as informações, criar descrições automáticas para imagens 🖼️, processar vídeos 🎥, músicas 🎶, textos 📄, e até documentos PDF 📚!  
+Bem-vindo ao repositório do **Instabytes Backend**! 🚀 Aqui é onde acontece toda a mágica do nosso projeto. Esse componente é responsável por gerenciar as informações, criar descrições automáticas para imagens 🖼️, processar vídeos 🎥, músicas 🎶, textos e programas 📄, e até documentos PDF 📚!  
 
 ## 📚 **Índice**
 
