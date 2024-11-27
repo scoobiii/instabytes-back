@@ -70,7 +70,7 @@ instabytes-back/
 
 1. **Baixe o projeto**:  
    ```bash
-   git clone https://github.com/beatrizgouveia03/instabytes-back.git
+   git clone https://github.com/scoobiii/instabytes-back.git
    cd instabytes-back
    ```  
 
